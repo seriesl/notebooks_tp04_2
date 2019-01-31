@@ -1,0 +1,6 @@
+#!/bin/sh
+
+cd fortran/burgers/
+make
+cd ../nagumo
+make
