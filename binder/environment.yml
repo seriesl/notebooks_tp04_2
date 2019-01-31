@@ -1,6 +1,7 @@
-name: tp02
+name: tp04
 dependencies:
     - numpy
     - scipy
     - bokeh
     - gcc
+    -libgfortran
