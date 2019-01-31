@@ -7,6 +7,7 @@ LDFLAGS =
 LIBS =
 
 OBJDIR = ./obj
+RUNDIR = ./run
 
 EXE = run/mr_burgers
 
@@ -22,9 +23,14 @@ OBJS = obj/mod_common.o \
        obj/mr_burgers1D.o 
        
 
-all: $(OBJDIR) $(EXE)
+all: $(OBJDIR) $(RUNDIR) $(EXE)
 
 $(OBJDIR):
+	@echo "Creation du repertoire $@"
+	@mkdir -p $@
+	@echo
+
+$(RUNDIR):
 	@echo "Creation du repertoire $@"
 	@mkdir -p $@
 	@echo
