@@ -135,12 +135,12 @@
         Nbre_pt_arbre = Nbre_pt_arbre * nbre_racine(l)
       enddo
 
-      Print*
-      print *, ' Parametres pour la multiresolution :'
-      print *, '   Niveau minimal :', niv_min
-      print *, '   Niveau maximal :', niv_max
-      print *, '   Ordre de reconstruction :', s
-      print *, '   Nombre total de points dans l''arbre : ', Nbre_pt_arbre
-      print *, '   Nombre total de feuilles possibles : ', nbre_maille
+      print*
+      print *, ' Multiresolution parameter:'
+      print *, '   Minimal level:', niv_min
+      print *, '   Maximal level:', niv_max
+      print *, '   Predictor stencil :', s
+      print *, '   Threshold value :', epsilon
+      print *, '   Number of cells on the finest grid  : ', nbre_maille
 
       end subroutine lect_don

@@ -29,7 +29,11 @@
       TYPE(structure_maille), Pointer :: root, courant, work
       TYPE(structure_fils), Pointer, DIMENSION(:,:,:) :: racine
 
+      DOUBLE PRECISION :: t1, t2, t_cpu
+
       print *, "Multiresolution : equation de Burgers 1D"
+
+      call cpu_time(time=t1)
 
 ! ====================== Initialisation ============================
 
@@ -913,13 +917,13 @@
  
             DEALLOCATE( flag_coins, x_coins, ind_coins, var_print )
 
-!!            Print*, ' '
-!!            Print*, ' Erreurs :'
-!!            do m = 1, nvar
-!!              Print*, ' m = ', m, ' Erreurs Linf = ', erreur_linf(m), &
-!!                      ' Erreurs L1 = ', erreur_l1(m), & 
-!!                      ' Erreurs L2 = ', erreur_l2(m)
-!!            enddo
+            !Print*, ' '
+            !Print*, ' Erreurs :'
+            !do m = 1, nvar
+              !Print*, ' m = ', m, ' Erreurs Linf = ', erreur_linf(m), &
+              !        ' Erreurs L1 = ', erreur_l1(m), & 
+              !        ' Erreurs L2 = ', erreur_l2(m)
+            !enddo
 
 ! *****Ecriture de la solution pour sauvegarde
 
@@ -986,6 +990,14 @@
       Enddo
 
 69    continue
+
+      call cpu_time(time=t2)
+
+      t_cpu = t2 - t1
+
+      Print*, ' '
+      Print*, '================================================= '
+      Print*, ' Time CPU   = ',t_cpu, ' sec.'
 
 ! *****Ecriture de la solution finale (si ce n'est deja fait)
 
